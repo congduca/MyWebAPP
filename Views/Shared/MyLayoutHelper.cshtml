@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+<body class="sb-nav-fixed">
+
+    <div id="layoutSidenav">
+
+        <!--Begin Top Nav-->
+        <div id="LayoutSidenav_nav">
+            <partial name="TopNav" />
+        </div>
+        <!--End TOp Nav-->
+        <!-- Begin Left Menu -->
+        <div id="LayoutSidenav_nav">
+            @await Component.InvokeAsync("Render");
+        </div>
+        <!--End Left Menu-->
+        <!-- Begin Right content -->
+        <div id="layoutSidenav_content">
+
+            <!--Begin Main-->
+            <main>
+                <!--
+                @RenderBody()
+                -->
+
+                <partial name="XMain" />
+            </main>
+            <!--End main-->
+            <!--Begin Footer-->
+            <footer class="py-4 bg-light mt-auto">
+                <partial name="Footer" />
+
+        </div>
+        <!-- End Right content -->
+    </div>
+    <script src="~/js/scripts.js"></script>
+    @RenderSection("Scripts", required: false);
+
+</body>
+</html>

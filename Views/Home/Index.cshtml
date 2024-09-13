@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Studet List";
+    Layout = "~/Views/Shared/MyLayouthelper.cshtml";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index View</title>
+</head>
+<body>
+    <p> @ViewData["Message"] </p>
+    <p> @ViewData["CurrentTime"]</p>
+    <p> @ViewBag.Message1</p>
+
+    <p>
+        <em>Accessed from ViewData: </em>
+        @ViewData["Message"]
+    </p>
+    <p>
+        <em>Accessed from ViewBag: </em>
+        @ViewBag.Message
+    </p>
+    <p>
+        <em>Accessed from TempData: </em>
+        @TempData["Message"]
+    </p> 
+    <p> @TempData["Mess"]</p>
+
+
+    @{
+        var b = 0;
+        while (b < 10)
+        {
+            b += 1;
+                    <p>Text @b</p>
+        }
+    }
+
+    @{
+        string[] members = { "Joe", "Mark", "Stella" };
+        int i = Array.IndexOf(members, "Stella") + 1;
+        int len = members.Length;
+        string x = members[2 - 1];
+    }
+    
+   
+        <h3>Student Details</h3>
+        @foreach (var person in members)
+        {
+            <p>@person</p>
+        }
+        <p>The number of students in class are @len</p>
+        <p>The student at position 2 is @x</p>
+        <p>Stella is now in position @i</p>
+
+        @Html.ActionLink("Click to Browse", "SayHello", "Hello")
+
+    @{
+        Html.BeginForm("Index", "Home");
+    }
+    <p>Inside Form</p>
+
+    @Html.Label("User name: ") <br></br>
+    @Html.TextBox("TextBox1: ") <br></br>
+    
+    @Html.Label("Adress: ") <br></br>
+    @Html.TextArea("textArea1") <br></br>
+
+    <input type="Submit" name="Submit" value="Submit" />
+    @{
+        Html.EndForm();
+    }
+    @section Scripts{
+        <script>
+            var table = document.querySelector("table");
+            table.onclick = function onTableClick() {
+                table.style = "background-color: yellow;"
+            }
+        </script>
+    }
+    
+
+</body>
+</html>
